@@ -6,48 +6,34 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:33:53 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/10 09:56:49 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/16 13:35:23 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-int		ft_free(t_data *data, int result)
+void		*t_function(void *string)
 {
-	if (!data)
-		free(data);
-	while (1)
-		;
-	return (result);
-}
-
-int			init_data(t_data *data, int argc, char **argv)
-{
-	int		i;
-
-	if (!(data = (t_data *)malloc(sizeof(data))))
-		return (KO);
-	i = ft_atoi(argv[1]);
-	data->number_of_philosophers = i;
-	data->time_to_die = ft_atoi(argv[2]);
-	data->time_to_eat = ft_atoi(argv[3]);
-	data->time_to_sleep = ft_atoi(argv[4]);
-	if (argc == 6)
-		data->number_of_times_each_philosopher_must_eat = ft_atoi(argv[5]);
-	else
-		data->number_of_times_each_philosopher_must_eat = 0;
-	return (OK);
+	printf("%s\n", (char *)(string));
+	return (0);
 }
 
 int			main(int argc, char **argv)
 {
 	t_data	*data;
+	t_mutex	*mutex;
+	t_philo	*philo;
 
 	data = NULL;
+	mutex = NULL;
+	philo = NULL;
 	if (argc != 5 && argc != 6)
 		return (0);
-	if (!init_data(data, argc, argv))
-		return (ft_free(data, KO));
-	
-	return (ft_free(data, OK));
+	if (!(data = init_data(argc, argv)))
+		return (ft_free_all(data, mutex, philo, KO));
+	if (!(mutex = init_mutex(data)))
+		return (ft_free_all(data, mutex, philo, KO));
+	if (!(mutex = init_mutex(data)))
+		return (ft_free_all(data, mutex, philo, KO));
+	return (ft_free_all(data, mutex, philo, OK));
 }
