@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:33:53 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/26 19:09:36 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/26 20:36:58 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void		*ft_dining(void *temp_philo)
 	philo = temp_philo;
 	pthread_create(&died, NULL, &is_died, (void *)philo);
 	pthread_detach(died);
-	// if (philo->philo_name % 2 != 0)
-	// 	usleep(philo->data->time_to_eat);
+	if (philo->philo_name % 2 != 0)
+		usleep(philo->data->time_to_eat);
 	while (g_state != DIED && g_state != FULL)
 	{
 		ft_eating(philo);
@@ -61,7 +61,7 @@ int			main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (std_message("argument error\n", 2));
 	if (!(init_data(&data, argc, argv)))
-		return (std_message("time error\n", 2));
+		return (std_message("argument error\n", 2));
 	if (!init_mutex(&data, &mutex))
 		return (std_message("mutex_create error\n", 2));
 	if (!(philo = init_philo(&data, &mutex)))
