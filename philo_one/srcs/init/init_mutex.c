@@ -6,21 +6,27 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:17:21 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/16 13:40:55 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/26 19:20:30 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-t_mutex		*init_mutex(t_data *data)
+int			init_mutex(t_data *data, t_mutex *mutex)
 {
-	t_mutex *mutex;
+	int		i;
 
-	if (!(mutex = (t_mutex *)malloc(sizeof(t_mutex))))
+	if (!(mutex->m_forks = \
+	(pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * data->num_of_philo)))
 		return (KO);
-	mutex->num_of_philo = data->num_of_philo;
-	if (!(mutex->m_forks = 
-		(pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * mutex->num_of_philo)))
-		return (KO);
-	return (mutex);
+	i = 0;
+	while (i < data->num_of_philo)
+	{
+		pthread_mutex_init(&(mutex->m_forks[i]), NULL);
+		i++;
+	}
+	pthread_mutex_init(&mutex->m_message, NULL);
+	pthread_mutex_init(&mutex->m_state, NULL);
+	pthread_mutex_init(&mutex->m_num_of_full, NULL);
+	return (OK);
 }

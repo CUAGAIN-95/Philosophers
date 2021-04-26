@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_time.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 22:01:34 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/23 21:01:14 by yeonhlee         ###   ########.fr       */
+/*   Created: 2021/04/26 18:57:28 by yeonhlee          #+#    #+#             */
+/*   Updated: 2021/04/26 18:58:43 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo_one.h"
-
-long		ft_get_time(void)
+int		ft_strlen(const char *str)
 {
-	struct timeval	time;
-	long			result;
+	int	i;
 
-	if (gettimeofday(&time, NULL))
-		return (KO);
-	result = time.tv_sec * (long)1000 + time.tv_usec / (long)1000;
-	return (result);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

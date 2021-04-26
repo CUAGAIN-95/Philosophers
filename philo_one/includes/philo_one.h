@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/16 13:40:40 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/26 19:20:13 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 # define KO		0
 # define OK		1
 
+# define DIED	0
+# define ALIVE	1
+# define FULL	2
+
+int					g_state;
+
 /*
 ** =============================================================================
 **	struct
@@ -38,24 +44,30 @@ typedef struct		s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				num_of_must_eat;
-	double			start_time;
+	long			start_time;
+	int				num_of_full;
 }					t_data;
 
 typedef struct		s_mutex
 {
 	pthread_mutex_t	*m_forks;
-	int				num_of_philo;
+	pthread_mutex_t	m_message;
+	pthread_mutex_t	m_state;
+	pthread_mutex_t m_num_of_full;
 }					t_mutex;
 
 
 typedef struct		s_philo
 {
 	pthread_t		thread;
+	int				philo_name;
+	t_data			*data;
+	t_mutex			*mutex;
 	pthread_mutex_t	*m_left_fork;
 	pthread_mutex_t	*m_right_fork;
-	t_mutex			*mutex;
-	
-	
+	long			last_eat;
+	int				num_of_eat;
+	int				state;
 }					t_philo;
 
 
@@ -77,9 +89,9 @@ int					ft_free_all(t_data *data, t_mutex *mutex, \
 ** =============================================================================
 */
 
-t_data				*init_data(int argc, char **argv);
-t_mutex				*init_mutex(t_data *data);
-t_philo				*init_philo(t_data *data);
+int					init_data(t_data *data, int argc, char **argv);
+int					init_mutex(t_data *data, t_mutex *mutex);
+t_philo				*init_philo(t_data *data, t_mutex *mutex);
 
 /*
 ** =============================================================================
@@ -87,8 +99,37 @@ t_philo				*init_philo(t_data *data);
 ** =============================================================================
 */
 
-double				ft_get_time(void);
-
+long				ft_get_time(void);
 int					ft_atoi(const char *nptr);
+int					ft_strlen(const char *str);
+
+/*
+** =============================================================================
+**	doing.c
+** =============================================================================
+*/
+
+void				ft_eating(t_philo *philo);
+void				ft_sleeping(t_philo *philo);
+void				ft_thinking(t_philo *philo);
+
+/*
+** =============================================================================
+**	monitoring.c
+** =============================================================================
+*/
+
+void				*is_died(void *temp_philo);
+void				*is_full(void *temp_philo);
+
+
+/*
+** =============================================================================
+**	ft_print_do.c
+** =============================================================================
+*/
+
+void				message(char *str, t_philo *philo);
+int					std_message(char *str, int fd);
 
 #endif

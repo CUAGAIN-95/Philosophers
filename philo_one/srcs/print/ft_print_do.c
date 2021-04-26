@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_time.c                                      :+:      :+:    :+:   */
+/*   ft_print_do.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 22:01:34 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/23 21:01:14 by yeonhlee         ###   ########.fr       */
+/*   Created: 2021/04/18 19:09:11 by yeonhlee          #+#    #+#             */
+/*   Updated: 2021/04/26 19:20:37 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-long		ft_get_time(void)
+void	message(char *str, t_philo *philo)
 {
-	struct timeval	time;
-	long			result;
+	
+	pthread_mutex_lock(&philo->mutex->m_message);
+	if (g_state != DIED && g_state != FULL)
+	{
+		printf("%ld ms ", ft_get_time() - philo->data->start_time);
+		printf("%d", philo->philo_name);
+		printf("%s", str);
+	}
+	pthread_mutex_unlock(&philo->mutex->m_message);
+}
 
-	if (gettimeofday(&time, NULL))
+int		std_message(char *str, int fd)
+{
+	write(fd, str, ft_strlen(str));	
+	if (fd == 2)
 		return (KO);
-	result = time.tv_sec * (long)1000 + time.tv_usec / (long)1000;
-	return (result);
+	return (OK);
 }
