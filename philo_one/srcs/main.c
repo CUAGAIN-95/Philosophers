@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:33:53 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:30:14 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:12:31 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		*ft_dining(void *temp_philo)
 	pthread_t	died;
 	t_philo		*philo;
 
-	philo = temp_philo;
+	philo = (t_philo *)temp_philo;
 	pthread_create(&died, NULL, &is_died, (void *)philo);
 	pthread_detach(died);
 	if (philo->philo_name % 2 != 0)
@@ -59,15 +59,15 @@ int			main(int argc, char **argv)
 
 	philo = NULL;
 	if (argc != 5 && argc != 6)
-		return (std_message("argument error\n", 2));
+		return (end_message("argument error\n", 2));
 	if (!(init_data(&data, argc, argv)))
-		return (std_message("data error\n", 2));
+		return (end_message("data error\n", 2));
 	if (!init_mutex(&data, &mutex))
-		return (std_message("mutex_create error\n", 2));
+		return (end_message("mutex_create error\n", 2));
 	if (!(philo = init_philo(&data, &mutex)))
-		return (std_message("philo_create error\n", 2));
+		return (end_message("philo_create error\n", 2));
 	if (!ft_philo_one(philo))
-		return (KO);	//
+		return (end_message("philo_one error\n", 2));
 	//
 	return (OK);
 }

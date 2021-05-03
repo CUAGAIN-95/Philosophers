@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:35:23 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:21:47 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:29:00 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*is_died(void *temp_philo)
 	philo = (t_philo *)temp_philo;
 	while (g_state != DIED && g_state != FULL)
 	{
+		usleep(100);
 		if (ft_get_time() - philo->last_eat > philo->data->time_to_die)
 		{
 			pthread_mutex_lock(&philo->mutex->m_state);
@@ -26,6 +27,7 @@ void	*is_died(void *temp_philo)
 			philo->state = DIED;
 			g_state = DIED;
 			pthread_mutex_unlock(&philo->mutex->m_state);
+			usleep(100000);	//////
 			break ;
 		}
 	}

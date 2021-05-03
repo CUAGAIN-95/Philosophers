@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_do.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 19:09:11 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:29:26 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:47:32 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	message(char *str, t_philo *philo)
 	pthread_mutex_unlock(&philo->mutex->m_message);
 }
 
-int		std_message(char *str, int fd)
+int		end_message(char *str, int fd)
 {
 	write(fd, str, ft_strlen(str));
 	if (fd == 2)

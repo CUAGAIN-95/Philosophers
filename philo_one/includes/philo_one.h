@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:30:00 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:34:17 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,6 @@ void				*is_full(void *temp_philo);
 */
 
 void				message(char *str, t_philo *philo);
-int					std_message(char *str, int fd);
+int					end_message(char *str, int fd);
 
 #endif

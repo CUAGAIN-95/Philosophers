@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 17:36:24 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/01 22:17:10 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:39:01 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_destroy(t_philo *philo)
 {
-
+    (void)philo;
 }
