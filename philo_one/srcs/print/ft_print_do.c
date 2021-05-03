@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_do.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 19:09:11 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/26 20:29:02 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:19:37 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	message(char *str, t_philo *philo)
 {
-	
 	pthread_mutex_lock(&philo->mutex->m_message);
 	if (g_state != DIED && g_state != FULL)
 	{
@@ -27,7 +26,7 @@ void	message(char *str, t_philo *philo)
 
 int		std_message(char *str, int fd)
 {
-	write(fd, str, ft_strlen(str));	
+	write(fd, str, ft_strlen(str));
 	if (fd == 2)
 		return (KO);
 	return (OK);

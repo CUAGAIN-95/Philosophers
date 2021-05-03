@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 22:00:15 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/16 13:39:23 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:20:16 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_free_data(t_data *data, int result)
 	return (result);
 }
 
-int				ft_free_mutex(t_mutex *mutex, int result)
+int		ft_free_mutex(t_mutex *mutex, int result)
 {
 	if (!mutex)
 	{
@@ -28,7 +28,7 @@ int				ft_free_mutex(t_mutex *mutex, int result)
 	return (result);
 }
 
-int				ft_free_philo(t_philo *philo, int result)
+int		ft_free_philo(t_philo *philo, int result)
 {
 	if (!philo)
 		free(philo);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doing.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 19:18:04 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/26 19:25:42 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:20:27 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_eating(t_philo *philo)
 {
 	pthread_mutex_lock(philo->m_left_fork);
 	pthread_mutex_lock(philo->m_right_fork);
+	message(" has taken a fork\n", philo);
 	message(" has taken a fork\n", philo);
 	philo->last_eat = ft_get_time();
 	pthread_mutex_lock(&philo->mutex->m_num_of_full);

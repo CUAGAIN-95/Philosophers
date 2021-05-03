@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/26 19:20:13 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:18:11 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct		s_mutex
 	pthread_mutex_t m_num_of_full;
 }					t_mutex;
 
-
 typedef struct		s_philo
 {
 	pthread_t		thread;
@@ -69,7 +68,6 @@ typedef struct		s_philo
 	int				num_of_eat;
 	int				state;
 }					t_philo;
-
 
 /*
 ** =============================================================================
@@ -121,7 +119,6 @@ void				ft_thinking(t_philo *philo);
 
 void				*is_died(void *temp_philo);
 void				*is_full(void *temp_philo);
-
 
 /*
 ** =============================================================================

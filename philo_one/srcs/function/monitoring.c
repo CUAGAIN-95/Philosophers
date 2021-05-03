@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:35:23 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/26 20:31:41 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:21:47 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*is_died(void *temp_philo)
 	t_philo	*philo;
 
 	philo = (t_philo *)temp_philo;
-	while(g_state != DIED && g_state != FULL)	
+	while (g_state != DIED && g_state != FULL)
 	{
 		if (ft_get_time() - philo->last_eat > philo->data->time_to_die)
 		{
@@ -29,8 +29,6 @@ void	*is_died(void *temp_philo)
 			break ;
 		}
 	}
-	// printf("%d g_state : %d\n",philo->philo_name, g_state);
-	printf("die......\n");
 	return (NULL);
 }
 
@@ -50,6 +48,5 @@ void	*is_full(void *temp_philo)
 			break ;
 		}
 	}
-	printf("full......\n");
 	return (NULL);
 }
