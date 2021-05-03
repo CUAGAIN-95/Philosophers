@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 07:51:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:22:40 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:29:32 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ static int	ft_isspace(char c)
 	if ((9 <= c && c <= 13) || c == 32)
 		return (1);
 	return (0);
+}
+
+static int	ft_isnum(char c)
+{
+	if ('0' <= c && c <= '9')
+		return (OK);
+	return (KO);
 }
 
 int			ft_atoi(const char *nptr)
@@ -36,8 +43,10 @@ int			ft_atoi(const char *nptr)
 			minus *= -1;
 		i++;
 	}
-	while (nptr[i] != '\0' && '0' <= nptr[i] && nptr[i] <= '9')
+	while (nptr[i] != '\0')
 	{
+		if (!ft_isnum(nptr[i]))
+			return(-1);
 		result = (result * 10) + (int)(nptr[i] - '0');
 		i++;
 	}

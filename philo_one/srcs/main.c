@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:33:53 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:23:09 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/03 17:30:14 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			main(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 		return (std_message("argument error\n", 2));
 	if (!(init_data(&data, argc, argv)))
-		return (std_message("argument error\n", 2));
+		return (std_message("data error\n", 2));
 	if (!init_mutex(&data, &mutex))
 		return (std_message("mutex_create error\n", 2));
 	if (!(philo = init_philo(&data, &mutex)))

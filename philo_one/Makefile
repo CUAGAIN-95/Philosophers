@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 20:13:39 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/04/26 19:00:35 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/04/28 17:38:08 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ INC		=	-I ./includes
 SRCS	=	$(addprefix ./srcs/, \
 			main.c \
 			free/ft_free.c \
+			free/ft_destroy.c \
 			function/doing.c \
 			function/monitoring.c \
 			init/init_data.c \
