@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_one.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/05/16 10:27:37 by yeonhlee         ###   ########.fr       */
-=======
-/*   Updated: 2021/05/03 17:34:17 by yeonhlee         ###   ########.fr       */
->>>>>>> 8d63dfb349480c4263ad98f27eee065eb8e8796b
+/*   Updated: 2021/05/18 17:09:42 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +104,9 @@ uint64_t			ft_get_time(void);
 int					ft_atoi(const char *nptr);
 long				ft_atol(const char *nptr);
 
-<<<<<<< HEAD
 int					ft_isspace(char c);
 int					ft_isnum(char c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strlen(const char *str);
-=======
-void				message(char *str, t_philo *philo);
-int					end_message(char *str, int fd);
->>>>>>> 8d63dfb349480c4263ad98f27eee065eb8e8796b
 
 #endif
