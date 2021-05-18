@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 19:09:11 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:29:26 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:40:23 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,14 @@
 
 void	message(char *str, t_philo *philo)
 {
-	pthread_mutex_lock(&philo->mutex->m_message);
-	if (g_state != DIED && g_state != FULL)
+	pthread_mutex_lock(&g_message_mutex);
+	if (philo == NULL)
+		printf("%s", str);
+	else if (g_state != DIED && philo->state != ONE_FULL)
 	{
-		printf("%ld ms ", ft_get_time() - philo->data->start_time);
+		printf("%llu ms ", ft_get_time() - philo->time_stamp->start_time);
 		printf("%d", philo->philo_name);
 		printf("%s", str);
 	}
-	pthread_mutex_unlock(&philo->mutex->m_message);
-}
-
-int		std_message(char *str, int fd)
-{
-	write(fd, str, ft_strlen(str));
-	if (fd == 2)
-		return (KO);
-	return (OK);
+	pthread_mutex_unlock(&g_message_mutex);
 }

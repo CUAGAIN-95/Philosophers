@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 20:13:39 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/04/28 17:38:08 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/05/16 10:47:45 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,17 @@ INC		=	-I ./includes
 
 SRCS	=	$(addprefix ./srcs/, \
 			main.c \
-			free/ft_free.c \
-			free/ft_destroy.c \
-			function/doing.c \
-			function/monitoring.c \
-			init/init_data.c \
-			init/init_mutex.c \
-			init/init_philo.c \
-			print/ft_print_do.c \
-			util/ft_atoi.c \
-			util/ft_strlen.c \
-			util/ft_get_time.c \
+			doing.c \
+			finish.c \
+			fork.c \
+			ft_ato.c \
+			ft_check.c \
+			ft_get_time.c \
+			ft_print_do.c \
+			init_philo_one.c \
+			monitoring.c \
+			threads.c \
+			util.c \
 			)
 
 OBJS	=	$(SRCS:.c=.o)
@@ -40,6 +40,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			clear
 
 all:		$(NAME)
 			

@@ -3,49 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 00:35:23 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/03 17:21:47 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/17 20:30:33 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_one.h"
 
-void	*is_died(void *temp_philo)
+void	*check_one_die(void *temp_philo)
 {
-	t_philo	*philo;
+	t_philo		*philo;
 
 	philo = (t_philo *)temp_philo;
-	while (g_state != DIED && g_state != FULL)
+	while (g_state != DIED && philo->state != ONE_FULL)
 	{
-		if (ft_get_time() - philo->last_eat > philo->data->time_to_die)
+		usleep(100);
+		if (ft_get_time() - philo->time_stamp->eating > \
+				philo->data.time_to_die)
 		{
-			pthread_mutex_lock(&philo->mutex->m_state);
-			message(" is died\n", philo);
-			philo->state = DIED;
+			pthread_mutex_lock(&g_state_mutex);
+			message(" died\n", philo);
 			g_state = DIED;
-			pthread_mutex_unlock(&philo->mutex->m_state);
+			pthread_mutex_unlock(&g_state_mutex);
 			break ;
 		}
 	}
 	return (NULL);
 }
 
-void	*is_full(void *temp_philo)
+void	*check_all_full(void *temp_philo)
 {
-	t_philo	*philo;
+	t_philo_one	*philo_one;
 
-	philo = (t_philo *)temp_philo;
-	while (g_state != DIED && g_state != FULL)
+	philo_one = (t_philo_one *)temp_philo;
+	while (g_state != DIED && g_state != ALL_FULL)
 	{
-		if (philo->data->num_of_full == philo->data->num_of_philo)
+		if (g_count_full_philos == philo_one->num_of_philos)
 		{
-			pthread_mutex_lock(&philo->mutex->m_state);
-			printf("All philosophers are full!\n");
-			g_state = FULL;
-			pthread_mutex_unlock(&philo->mutex->m_state);
-			break ;
+			pthread_mutex_lock(&g_state_mutex);
+			message("All philo_onesophers are full!\n", NULL);
+			g_state = ALL_FULL;
+			pthread_mutex_unlock(&g_state_mutex);
+			return (NULL);
 		}
 	}
 	return (NULL);
