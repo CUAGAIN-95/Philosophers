@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/07 20:13:39 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/05/16 10:47:45 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/05/18 17:11:38 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ OBJS	=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-			clear
 
 all:		$(NAME)
 			

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 18:05:14 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/18 23:12:30 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 02:05:14 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		set_data(t_data *data, int argc, char **argv)
 {
-	if ((data->time_to_die = (uint64_t)ft_atoi(argv[2]) < 0) || \
-		(data->time_to_eat = (uint64_t)ft_atoi(argv[3]) < 0) || \
-		(data->time_to_sleep = (uint64_t)ft_atoi(argv[4]) < 0))
+	if ((data->time_to_die = (uint64_t)ft_atoi(argv[2])) < 0 || \
+		(data->time_to_eat = (uint64_t)ft_atoi(argv[3])) < 0 || \
+		(data->time_to_sleep = (uint64_t)ft_atoi(argv[4])) < 0)
 		return (KO);
 	if (argc == 6)
 	{
@@ -28,9 +28,9 @@ int		set_data(t_data *data, int argc, char **argv)
 	return (OK);
 }
 
-int		init_time_stamp(t_time_stamp **time_stamp, int argc, char **argv)
+int		init_time_stamp(t_time_stamp **time_stamp)
 {
-	if (!(time_stamp = (t_time_stamp*)malloc(sizeof(t_time_stamp))))
+	if (!(*time_stamp = (t_time_stamp*)malloc(sizeof(t_time_stamp))))
 		return (KO);
 	(*time_stamp)->thinking = 0;
 	(*time_stamp)->eating = 0;
@@ -47,7 +47,8 @@ int		set_one_philo(t_philo *philo, int name, int argc, char **argv)
 	philo->state = ALIVE;
 	if (!set_data(&(philo->data), argc, argv))
 		return (KO);
-	if (!init_time_stamp(&(philo->time_stamp), argc, argv))
+	if (!init_time_stamp(&(philo->time_stamp)))
+		return (KO);
 	return (OK);
 }
 

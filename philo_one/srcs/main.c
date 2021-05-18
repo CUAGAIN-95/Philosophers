@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:33:53 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/18 17:07:54 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:44:01 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			main(int argc, char **argv)
 	if (!init_global_variables())
 		return (ft_finish(NULL,"mutex create error"));
 	if (!init_philo_one(&philo_one, argc, argv))
-		return (ft_finish(&philo_one, "init struct error\n"));
+		return (ft_finish(&philo_one, "init philo_one error\n"));
 	if (!create_threads(&philo_one))
 		return (ft_finish(&philo_one, "create thread error\n"));
 	if (!join_threads(philo_one))

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:34:30 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:40:40 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,28 @@ int					check_argument(int argc, char **argv);
 
 uint64_t			ft_get_time(void);
 
+int					set_data(t_data *data, int argc, char **argv);
+int					init_time_stamp(t_time_stamp **time_stamp);
+int					set_one_philo(t_philo *philo, int name, int argc, \
+									char **argv);
+int					init_philos(t_philo_two *philo_two, int argc, char **argv);
+int					init_philo_two(t_philo_two *philo_two, int argc, \
+									char **argv);
+
+int					create_threads(t_philo_two *philo_two);
+int					join_threads(t_philo_two philo_two);
+
 void				*dining(void *arg);
 void				thinking(t_philo *philo);
 void				eating(t_philo *philo);
 void				sleeping(t_philo *philo);
 
 void				pick_up_forks(t_philo *philo);
-void				put_down_forks(t_philo *philo);
+void				put_down_forks(void);
 void				*check_all_full(void *arg);
 void				*check_one_die(void *arg);
 
+void				message(char *str, t_philo *philo);
 
 long				ft_atol(const char *str);
 int					ft_atoi(const char *str);
@@ -95,6 +107,6 @@ int					ft_strlen(const char *str);
 
 void				close_sem(void);
 void				free_all(t_philo_two *philo_two);
-int					ft_finish(t_philo_two *philo_two, const char **err_msg);
+int					ft_finish(t_philo_two *philo_two, const char *err_msg);
 
 #endif

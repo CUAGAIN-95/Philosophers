@@ -6,21 +6,19 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/18 17:09:42 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/18 17:18:25 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_ONE_H
 # define PHILO_ONE_H
 
-# include <string.h>	// memset
-# include <stdio.h>		// printf
-# include <stdlib.h>	// malloc, free
-# include <unistd.h>	// write, usleep
-# include <sys/time.h>	// gettimeofdayf
-# include <pthread.h>	// pthread_create, pthread_detach, pthread_join
-						// pthread_mutex_init, pthread_mutex_destroy
-						// pthread_mutex_lock, pthread_mutex_unlock
+# include <string.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/time.h>
+# include <pthread.h>
 
 # define KO			0
 # define OK			1

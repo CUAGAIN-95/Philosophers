@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:24:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:31:36 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:35:26 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_all(t_philo_two *philo_two)
 		free(philo_two->philos);
 }
 
-int		ft_finish(t_philo_two *philo_two, const char **err_msg)
+int		ft_finish(t_philo_two *philo_two, const char *err_msg)
 {
 	if (philo_two)
 		free_all(philo_two);

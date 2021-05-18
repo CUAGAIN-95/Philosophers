@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:08:00 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:10:43 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:39:25 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	thinking(t_philo *philo)
 {
 	philo->time_stamp->thinking = ft_get_time();
 	message("is thinking", philo);
-	return (NULL);
 }
 
 void	eating(t_philo *philo)
@@ -56,7 +55,7 @@ void	*dining(void *arg)
 		thinking(philo);
 		pick_up_forks(philo);
 		eating(philo);
-		put_down_forks(philo);
+		put_down_forks();
 		sleeping(philo);
 	}
 	return (NULL);

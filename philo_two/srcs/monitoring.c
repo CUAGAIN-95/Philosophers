@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:09:20 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:16:10 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:42:50 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*check_one_die(void *arg)
 	while (g_state != DIED && philo->state != ONE_FULL)
 	{
 		usleep(100);
-		if (get_ms_time() - philo->time_stamp->eating > philo->data.time_to_die)
+		if (ft_get_time() - philo->time_stamp->eating > philo->data.time_to_die)
 		{
 			message("die...", philo);
 			sem_wait(g_state_sem);

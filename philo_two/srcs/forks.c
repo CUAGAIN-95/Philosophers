@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:00:55 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:09:07 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/19 01:39:43 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	pick_up_forks(t_philo *philo)
 	sem_post(g_pickup_forks);
 }
 
-void	put_down_forks(t_philo *philo)
+void	put_down_forks(void)
 {
 	sem_post(g_forks);
 	sem_post(g_forks);
