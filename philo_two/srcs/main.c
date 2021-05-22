@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:14:04 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:31:47 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/21 07:23:03 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int		main(int argc, char **argv)
 	if (!check_argument(argc, argv))
 		return (ft_finish(NULL, "argument error\n"));
 	if (!init_philo_two(&philo_two, argc, argv))
-		return (ft_finish(&philo_two, "init phio_two error\n"));
+		return (ft_finish(&philo_two, "init philo_two error\n"));
 	if (!init_global_variables(philo_two.num_of_philos))
-		return (ft_finish(&philo_two, "semaphore open error\n"));
+		return (ft_finish(&philo_two, "init global variables error\n"));
 	if (!create_threads(&philo_two))
 		return (ft_finish(&philo_two, "create threads error\n"));
 	if (!join_threads(philo_two))
