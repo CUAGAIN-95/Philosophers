@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doing.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 17:30:00 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/22 20:18:36 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:52:46 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		dining(void *arg)
 	pthread_detach(check_one_die_tid);
 	pthread_create(&kill_child_tid, NULL, kill_child, (void*)philo);
 	pthread_detach(kill_child_tid);
-	while(g_state != DIED && \
+	while (g_state != DIED && \
 			philo->state != DIED && philo->state != ONE_FULL)
 	{
 		thinking(philo);

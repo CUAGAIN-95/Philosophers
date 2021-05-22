@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doing.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 19:18:04 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/16 10:11:38 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:47:43 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*dining(void *arg)
 	pthread_t	check_one_die_tid;
 
 	philo = (t_philo *)arg;
-	if (pthread_create(&check_one_die_tid, NULL, check_one_die,	(void*)philo))
+	if (pthread_create(&check_one_die_tid, NULL, check_one_die, (void*)philo))
 		return (NULL);
 	pthread_detach(check_one_die_tid);
 	if (philo->philo_name % 2)

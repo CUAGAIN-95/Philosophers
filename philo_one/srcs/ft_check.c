@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 19:04:59 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/16 10:48:34 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:46:26 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int		check_argv(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!check_sign_num(argv[i]) || !check_int_range(argv[i]))
-			return(KO);
+			return (KO);
 		i++;
 	}
 	return (OK);

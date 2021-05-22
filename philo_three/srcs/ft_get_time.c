@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_time.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 22:01:34 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/21 15:21:17 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:51:14 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 uint64_t		ft_get_time(void)
 {
 	struct timeval	time;
-	uint64_t			result;
+	uint64_t		result;
 
 	if (gettimeofday(&time, NULL))
 		return (KO);

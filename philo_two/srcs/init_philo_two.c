@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_philo_two.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 18:05:14 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 02:05:14 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:50:43 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		init_philos(t_philo_two *philo_two, int argc, char **argv)
 		(t_philo *)malloc(sizeof(t_philo) * (philo_two->num_of_philos))))
 		return (KO);
 	i = 0;
-	while (i < philo_two ->num_of_philos)
+	while (i < philo_two->num_of_philos)
 	{
 		if (!set_one_philo(philo_two->philos + i, i + 1, argc, argv))
 			return (KO);

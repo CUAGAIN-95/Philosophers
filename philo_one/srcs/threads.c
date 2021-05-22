@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:07:22 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/18 17:04:31 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:48:19 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int				join_threads(t_philo_one philo_one)
 	int			i;
 
 	i = 0;
-	
 	while (i < philo_one.num_of_philos)
 	{
 		if (pthread_join(philo_one.philos[i].tid, NULL))

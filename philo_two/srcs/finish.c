@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:24:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/19 01:35:26 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:49:04 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,4 @@ int		ft_finish(t_philo_two *philo_two, const char *err_msg)
 	if (ft_strncmp(err_msg, "", 1))
 		write(2, err_msg, ft_strlen(err_msg));
 	return (1);
-}	
+}

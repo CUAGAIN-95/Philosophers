@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 16:38:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/05/22 19:59:39 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/05/22 20:35:59 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	*check_one_die(void *arg)
 			philo->state = DIED;
 			sem_post(g_state_sem);
 			sem_post(g_all_full);
-			break;
+			break ;
 		}
 	}
 	return (NULL);
